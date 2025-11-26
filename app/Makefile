@@ -9,6 +9,12 @@ db-migrate:
 build:
 	npm run build
 
+init:
+	echo "Инициализация Makefile..."
+
+dev:
+	echo "Запуск в dev-режиме"
+
 prepare-env:
 	cp -n .env.example .env
 
