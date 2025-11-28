@@ -32,3 +32,6 @@ lint-fix:
 
 test:
 	NODE_ENV=test npm test -s
+
+ci:
+	docker-compose -f docker-compose.test.yml up --abort-on-container-exit --remove-orphans

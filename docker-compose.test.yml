@@ -1,3 +1,10 @@
-build:
-  context: .
-  dockerfile: Dockerfile.production
+version: "3.8"
+
+services:
+  app:
+    image: pushc/devops-for-developers-project-74:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    working_dir: /app/app
+    command: npm test
