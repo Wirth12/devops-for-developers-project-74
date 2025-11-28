@@ -1,6 +1,14 @@
 version: "3.8"
 
 services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      -
   app:
     command: make dev
     ports:
