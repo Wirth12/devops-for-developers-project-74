@@ -37,4 +37,8 @@ test:
 	NODE_ENV=test npm test -s	
 
 ci:
-	docker-compose -f docker-compose.test.yml up --abort-on-container-exit --remove-orphans	
+ @code=0; \
+ COMPOSE_FILE=../docker-compose.yml docker compose build --no-cache app || true; \
+ COMPOSE_FILE=../docker-compose.yml docker compose up --abort-on-container-exit --exit-code-from app || code=$$?; \
+ COMPOSE_FILE=../docker-compose.yml docker compose down --volumes --remove-orphans || true; \
+ exit $$code
